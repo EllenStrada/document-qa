@@ -3,7 +3,10 @@
     "google-meet": {
       "command": "node",
       "args": ["/home/user/google-meet-mcp-server/src/index.js"],
-      "env": {}
+      "env": {
+        "GOOGLE_MEET_CREDENTIALS_PATH": "/home/user/google-meet-mcp-server/credentials.json",
+        "GOOGLE_MEET_TOKEN_PATH": "/home/user/google-meet-mcp-server/token.json"
+      }
     }
   }
 }
