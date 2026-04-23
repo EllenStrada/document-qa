@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "google-meet": {
+      "command": "node",
+      "args": ["/home/user/google-meet-mcp-server/src/index.js"],
+      "env": {}
+    }
+  }
+}
