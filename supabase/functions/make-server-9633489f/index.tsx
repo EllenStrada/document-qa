@@ -405,19 +405,6 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
                     </p>
                   </div>
 
-                  <!-- Call to Action Text -->
-                  <p style="font-size: 14px; line-height: 1.6; color: #333; margin: 20px 0;">
-                    Your data is the first step. Let's talk about how to turn it into an effective wellbeing strategy.
-                  </p>
-
-                  <!-- CTA Button -->
-                  <div style="text-align: center; margin: 30px 0;">
-                    <a href="${Deno.env.get('APP_URL') || 'https://maker-retina-03986578.figma.site'}/meeting?token=${encodeURIComponent(demoToken)}"
-                       style="display: inline-block; background: #FF9D89; color: white; padding: 14px 35px; border-radius: 6px; font-weight: bold; font-size: 15px; text-decoration: none;">
-                      Schedule a meeting
-                    </a>
-                  </div>
-
                   <!-- Footer -->
                   <p style="color: #999; font-size: 11px; margin: 30px 0 0 0; text-align: center;">© ${new Date().getFullYear()} ifeel</p>
                 </div>
