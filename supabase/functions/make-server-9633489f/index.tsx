@@ -40,9 +40,9 @@ console.log('- HUBSPOT_PORTAL_ID:', HUBSPOT_PORTAL_ID);
 console.log('- HUBSPOT_FORM_GUID:', HUBSPOT_FORM_GUID);
 
 // ========================================================================
-// POST /make-server-9633489f/download-logs - REGISTRAR DESCARGA
+// POST /download-logs - REGISTRAR DESCARGA
 // ========================================================================
-app.post("/make-server-9633489f/download-logs", async (c) => {
+app.post("/download-logs", async (c) => {
   console.log('🎯 POST /download-logs iniciado');
 
   try {
@@ -470,9 +470,9 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
 });
 
 // ========================================================================
-// POST /make-server-9633489f/submit-demo-request - FLUJO COMPLETO DE DEMO
+// POST /submit-demo-request - FLUJO COMPLETO DE DEMO
 // ========================================================================
-app.post("/make-server-9633489f/submit-demo-request", async (c) => {
+app.post("/submit-demo-request", async (c) => {
   console.log('🚀 POST /submit-demo-request iniciado');
 
   try {
@@ -653,9 +653,9 @@ app.post("/make-server-9633489f/submit-demo-request", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-9633489f/register-interest - REGISTRAR INTERÉS (SIN EMAIL) ❌
+// GET /register-interest - REGISTRAR INTERÉS (SIN EMAIL) ❌
 // ========================================================================
-app.get("/make-server-9633489f/register-interest", async (c) => {
+app.get("/register-interest", async (c) => {
   console.log('🎯 GET /register-interest iniciado (SIN ENVÍO DE EMAIL)');
 
   const token = c.req.query('token');
@@ -715,9 +715,9 @@ app.get("/make-server-9633489f/register-interest", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-9633489f/test-sendgrid - TEST EMAIL SENDGRID
+// GET /test-sendgrid - TEST EMAIL SENDGRID
 // ========================================================================
-app.get("/make-server-9633489f/test-sendgrid", async (c) => {
+app.get("/test-sendgrid", async (c) => {
   console.log('📧 Test SendGrid iniciado');
 
   const sendgridApiKey = Deno.env.get('SENDGRID_API_KEY');
@@ -780,9 +780,9 @@ app.get("/make-server-9633489f/test-sendgrid", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-9633489f/test-hubspot-form - DIAGNÓSTICO HUBSPOT
+// GET /test-hubspot-form - DIAGNÓSTICO HUBSPOT
 // ========================================================================
-app.get("/make-server-9633489f/test-hubspot-form", async (c) => {
+app.get("/test-hubspot-form", async (c) => {
   console.log('🧪 GET /test-hubspot-form iniciado');
 
   try {
@@ -839,7 +839,7 @@ app.get("/make-server-9633489f/test-hubspot-form", async (c) => {
 });
 
 // Health check endpoint
-app.get("/make-server-9633489f/health", (c) => {
+app.get("/health", (c) => {
   return c.json({
     status: "ok",
     timestamp: new Date().toISOString(),
