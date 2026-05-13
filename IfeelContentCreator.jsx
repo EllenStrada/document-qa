@@ -58,18 +58,16 @@ const SP_PARTS = [
   "STEP 4 - ES DRAFT: Write the COMPLETE Spanish article (all 12 sections + frontmatter + SEO table + internal link proposals + external link proposals). End with: 'Spanish draft complete. Please review both drafts and approve or adjust links and SEO.'",
   "STEP 5 - EN FINAL MARKDOWN: After EN links/SEO approved. Full EN Markdown with all links and CTA. Label: FINAL ENGLISH MARKDOWN.",
   "STEP 6 - ES FINAL MARKDOWN: After ES links/SEO approved. Full ES Markdown with all links and CTA. Label: FINAL SPANISH MARKDOWN.",
-  "STEP 6b - ES LINK APPROVAL: Review ES internal + external links separately from EN. Approve or request changes before proceeding to Figma HTML.",
-  "STEP 7 - EN FIGMA-READY HTML: After final EN Markdown approved. Produce semantic HTML with full inline CSS for Figma design handoff. Requirements: (a) No DOCTYPE/html/head/body tags. (b) Category as first p. (c) All typography: font-family: 'Inter', sans-serif; body font-size: 16px; line-height: 1.75; (d) Headings: H2 color:#1a3a8f, font-size:28px, font-weight:700, margin-bottom:16px; H3 color:#1a3a8f, font-size:20px, font-weight:600; (e) Paragraphs: color:#2d2d2d, max-width:720px, margin-bottom:16px; (f) Links: color:#e8845a, font-weight:600, text-decoration:none; (g) Table: border-collapse:collapse, width:100%; th: background:#1a3a8f, color:#fff, padding:12px 16px, text-align:left; td: padding:12px 16px, border:1px solid #e0e5f0; tr even: background:#f5f7ff; (h) Leadership lens div: background-color:#1a3a8f, border-radius:12px, padding:40px, margin:40px 0; h2 inside: color:#e8845a, font-size:2em; p inside: color:#ffffff, line-height:1.8; (i) AEO bold answer: background:#f5f7ff, border-left:4px solid #e8845a, padding:16px 20px, margin:20px 0; (j) CTA link: color:#e8845a, font-weight:bold. Label: FIGMA-READY ENGLISH HTML.",
-  "STEP 8 - ES FIGMA-READY HTML: Same spec as Step 7 but for Spanish content. Label: FIGMA-READY SPANISH HTML.",
-  "STEP 9 - EN WORDPRESS HTML: From approved Figma HTML, strip all inline CSS except Leadership lens div styles and CTA styles (WordPress theme handles typography). No DOCTYPE/html/head/body. No H1. Label: WORDPRESS ENGLISH HTML.",
-  "STEP 10 - ES WORDPRESS HTML: Same as Step 9 for Spanish. Label: WORDPRESS SPANISH HTML.",
+  "STEP 6b - ES LINK APPROVAL: Review ES internal + external links separately from EN. Approve or request changes before proceeding to WordPress HTML.",
+  "STEP 7 - EN WORDPRESS HTML: From approved EN Markdown, produce clean HTML with minimal inline CSS (WordPress theme handles typography). No DOCTYPE/html/head/body. No H1. Leadership lens div styling retained. Label: WORDPRESS ENGLISH HTML.",
+  "STEP 8 - ES WORDPRESS HTML: Same as Step 7 for Spanish. Label: WORDPRESS SPANISH HTML.",
 
   "## CTA LINKS (MANDATORY, from Step 5 onwards)",
   "EN: <p><a href='https://ifeelonline.com/info-request/' style='color:#e8845a; font-weight:bold;'>Get in touch with our team</a> to find out more.</p>",
   "ES: <p><a href='https://ifeelonline.com/es/solicitar-info/' style='color:#e8845a; font-weight:bold;'>Ponte en contacto con nuestro equipo</a> para saber más.</p>",
 
   "## SEO (RANK MATH)",
-  "Per language: Slug | Meta title (max 60 chars, focus keyword first, number + impact word) | Meta description (max 160 chars) | Meta keywords | Focus keyword (2-4 words, must appear in title/slug/meta/first paragraph/one H2) | Primary topic | HubSpot tag. Target Rank Math 80+/100.",
+  "Per language: Slug | Meta title (max 60 chars, focus keyword first, number + impact word) | Meta description (max 160 chars) | Meta keywords | Focus keyword (2-4 words, must appear in title/slug/meta/first paragraph/one H2) | Primary topic. Target Rank Math 80+/100.",
 
   "## INTERNAL LINKING",
   "CRITICAL: Only propose URLs confirmed via web_search. Search 'site:ifeelonline.com [topic]' (EN) and 'site:ifeelonline.com/es [topic]' (ES). Table: Anchor text | URL | Reason | Paragraph | Confidence. APPROVE EN AND ES LINKS SEPARATELY - they may differ. Do not integrate until approved individually.",
@@ -81,7 +79,7 @@ const SP_PARTS = [
   "Complete every article fully. No truncation. British English for EN. Spanish from Spain for ES. Never invent metrics. Never 'absenteeism reduction' without 'risk' and 'mental health'. Only verified links. Proofread for: no double dashes, no unnecessary capitals, no double spaces. Title case only for proper nouns and acronyms; otherwise sentence case.",
 
   "## HOW TO START",
-  "When user sends 'Go': execute all 4 crawling sources simultaneously, synthesize, propose 5 topics with EN/ES titles, existing article references, differentiation angles, and 'why this topic' rationale. When user provides a custom topic: skip crawling, go straight to Step 2 with that topic."
+  "When user sends 'Go': execute all 4 crawling sources simultaneously, synthesize, propose 5 topics with EN/ES titles, existing article references, differentiation angles, and 'why this topic' rationale. When user provides a custom topic: skip crawling, go straight to Step 2 with that topic. Do NOT explain the process - just execute."
 ];
 
 const SYSTEM_PROMPT = SP_PARTS.join("\n\n");
@@ -94,10 +92,8 @@ const STEPS = [
   { n: 5, label: "EN final MD" },
   { n: 6, label: "ES final MD" },
   { n: "6b", label: "Approve ES links" },
-  { n: 7, label: "EN Figma HTML" },
-  { n: 8, label: "ES Figma HTML" },
-  { n: 9, label: "EN WP HTML" },
-  { n: 10, label: "ES WP HTML" },
+  { n: 7, label: "EN WP HTML" },
+  { n: 8, label: "ES WP HTML" },
 ];
 
 export default function IfeelAgent() {
@@ -111,15 +107,12 @@ export default function IfeelAgent() {
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [messages, loading]);
 
-  // Detect which step we're on based on assistant messages
   useEffect(() => {
     const lastAssistant = [...messages].reverse().find(m => m.role === "assistant");
     if (!lastAssistant) return;
     const t = lastAssistant.content;
-    if (t.includes("WORDPRESS SPANISH HTML") || t.includes("ES WORDPRESS HTML")) setCurrentStep(10);
-    else if (t.includes("WORDPRESS ENGLISH HTML") || t.includes("EN WORDPRESS HTML")) setCurrentStep(9);
-    else if (t.includes("FIGMA-READY SPANISH") || t.includes("ES FIGMA")) setCurrentStep(8);
-    else if (t.includes("FIGMA-READY ENGLISH") || t.includes("EN FIGMA")) setCurrentStep(7);
+    if (t.includes("WORDPRESS SPANISH HTML") || t.includes("ES WORDPRESS HTML")) setCurrentStep(8);
+    else if (t.includes("WORDPRESS ENGLISH HTML") || t.includes("EN WORDPRESS HTML")) setCurrentStep(7);
     else if (t.includes("ES LINK APPROVAL") || t.includes("Spanish links")) setCurrentStep("6b");
     else if (t.includes("FINAL SPANISH MARKDOWN")) setCurrentStep(6);
     else if (t.includes("FINAL ENGLISH MARKDOWN")) setCurrentStep(5);
@@ -167,7 +160,7 @@ export default function IfeelAgent() {
     if (loading || !customTopic.trim()) return;
     const initMsg = {
       role: "user",
-      content: `Custom topic: "${customTopic}". Skip crawling and proceed directly to Step 2. Propose 3 EN candidate titles and 3 ES candidate titles in sentence case, addressing the same topic adapted to each language's conventions.`
+      content: "Custom topic: \"" + customTopic + "\". Skip crawling and proceed directly to Step 2. Propose 3 EN candidate titles and 3 ES candidate titles in sentence case, addressing the same topic adapted to each language's conventions."
     };
     setMessages([initMsg]);
     setStarted(true);
@@ -257,7 +250,7 @@ export default function IfeelAgent() {
         <div style={{ width: 32, height: 32, borderRadius: "50%", background: "#e8845a", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, color: "#fff", fontSize: "1em" }}>i</div>
         <div>
           <div style={{ color: "#fff", fontWeight: 700, fontSize: "0.95em" }}>ifeel Content Creator</div>
-          <div style={{ color: "#cdd6f0", fontSize: "0.68em" }}>EN + ES · Deep crawl · Separate link approval · Figma + WordPress · v7</div>
+          <div style={{ color: "#cdd6f0", fontSize: "0.68em" }}>EN + ES · Deep crawl · Separate link approval · WordPress · v8</div>
         </div>
         {started && (
           <button onClick={() => { setMessages([]); setStarted(false); setInput(""); setCustomTopic(""); setCurrentStep(0); }}
@@ -265,10 +258,10 @@ export default function IfeelAgent() {
             ↺ New article
           </button>
         )}
-        {!started && <div style={{ marginLeft: "auto", background: "#e8845a22", border: "1px solid #e8845a66", borderRadius: "20px", padding: "3px 10px", fontSize: "0.67em", color: "#e8845a", fontWeight: 700 }}>v7</div>}
+        {!started && <div style={{ marginLeft: "auto", background: "#e8845a22", border: "1px solid #e8845a66", borderRadius: "20px", padding: "3px 10px", fontSize: "0.67em", color: "#e8845a", fontWeight: 700 }}>v8</div>}
       </div>
 
-      {/* Step progress bar — shown after started */}
+      {/* Step progress bar */}
       {started && (
         <div style={{ background: "#fff", borderBottom: "1px solid #e0e5f0", padding: "8px 16px", overflowX: "auto", flexShrink: 0 }}>
           <div style={{ display: "flex", gap: "4px", alignItems: "center", minWidth: "max-content" }}>
@@ -322,7 +315,6 @@ export default function IfeelAgent() {
               {[
                 { icon: "🇬🇧", label: "EN article" },
                 { icon: "🇪🇸", label: "ES article" },
-                { icon: "🎨", label: "Figma HTML" },
                 { icon: "🟦", label: "WordPress HTML" },
                 { icon: "📊", label: "SEO + AEO" },
                 { icon: "✅", label: "Verified links" },
@@ -332,7 +324,7 @@ export default function IfeelAgent() {
               ))}
             </div>
 
-            {/* Auto-crawl button */}
+            {/* Go button */}
             <button
               onClick={handleGo}
               disabled={loading}
@@ -425,7 +417,7 @@ export default function IfeelAgent() {
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={handleKey}
-              placeholder="Pick a topic number, approve EN/ES links separately, request Figma HTML, WordPress HTML…"
+              placeholder="Pick a topic number, approve EN/ES links separately, request WordPress HTML…"
               rows={2}
               style={{ flex: 1, border: "1.5px solid #cdd6f0", borderRadius: "10px", padding: "9px 13px", fontSize: "0.86em", resize: "none", outline: "none", fontFamily: "inherit", color: "#1a1a2e", lineHeight: 1.5 }}
             />
