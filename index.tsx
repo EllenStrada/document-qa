@@ -36,16 +36,16 @@ const HUBSPOT_PORTAL_ID = Deno.env.get('HUBSPOT_PORTAL_ID') || '24884594';
 const HUBSPOT_FORM_GUID = Deno.env.get('HUBSPOT_FORM_GUID') || '88cd58b0-1586-437c-8b29-0a8fa5f56a74';
 const HUBSPOT_MEETING_LINK = Deno.env.get('HUBSPOT_MEETING_LINK') || 'https://ifeelonline.com/info-request/';
 
-// Middleware
-app.use("*", cors({
-  origin: "*",
-  allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowHeaders: ["Content-Type", "Authorization"],
-}));
+// Manejo manual de CORS sin middleware
+app.use("*", async (c, next) => {
+  c.header("Access-Control-Allow-Origin", "*");
+  c.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  c.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-// Explicit OPTIONS handler to ensure 200 response for preflight
-app.options("*", (c) => {
-  return c.text("OK", 200);
+  if (c.req.method === "OPTIONS") {
+    return c.body("", 200);
+  }
+  await next();
 });
 
 app.use("*", logger(console.log));
