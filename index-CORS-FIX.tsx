@@ -42,6 +42,12 @@ app.use("*", cors({
   allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowHeaders: ["Content-Type", "Authorization"],
 }));
+
+// Explicit OPTIONS handler to ensure 200 response for preflight
+app.options("*", (c) => {
+  return c.text("OK", 200);
+});
+
 app.use("*", logger(console.log));
 
 // ========================================================================
