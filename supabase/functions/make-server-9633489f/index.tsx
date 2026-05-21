@@ -72,7 +72,7 @@ async function sendConfirmationEmail(contactData: { email?: string; firstName?: 
                   <td style="background: linear-gradient(135deg, #1A4CA4 0%, #3E63BA 100%); padding:32px 40px; border-radius:12px 12px 0 0; text-align:center;">
                     <img src="https://ifeelonline.com/wp-content/uploads/sites/2/2026/04/ifeel-logo.svg" alt="ifeel" style="max-width:130px; height:auto; margin-bottom:16px;" />
                     <h1 style="color:white; margin:0; font-size:22px; font-weight:700; letter-spacing:-0.3px;">
-                      Analiza y potencia el bienestar mental en tu organización
+                      Analyze and enhance mental wellbeing in your organization
                     </h1>
                   </td>
                 </tr>
@@ -81,15 +81,15 @@ async function sendConfirmationEmail(contactData: { email?: string; firstName?: 
                 <tr>
                   <td style="background:white; padding:40px;">
 
-                    <!-- Saludo -->
+                    <!-- Greeting -->
                     <p style="font-size:18px; color:#1A4CA4; font-weight:700; margin:0 0 8px 0;">
-                      Hola, ${contactData.firstName || 'profesional'}
+                      Hello, ${contactData.firstName || 'there'}
                     </p>
                     <p style="font-size:15px; color:#4B5563; line-height:1.6; margin:0 0 28px 0;">
-                      Hemos recibido tu solicitud correctamente. ¡Gracias por tu interés en conocer el impacto real de la salud mental en tu empresa!
+                      We have received your request. Thank you for your interest in understanding the real impact of mental health in your organization!
                     </p>
 
-                    <!-- Tarjeta de confirmación -->
+                    <!-- Confirmation card -->
                     <div style="background: linear-gradient(135deg, #E7F1FE 0%, #C2DCFD 100%); border-radius:10px; padding:24px 28px; margin-bottom:28px;">
                       <table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:14px;">
                         <tr>
@@ -97,46 +97,46 @@ async function sendConfirmationEmail(contactData: { email?: string; firstName?: 
                             <div style="width:36px; height:36px; background:#FF9D89; border-radius:50%; text-align:center; line-height:38px; font-size:22px; font-weight:bold; color:white;">✓</div>
                           </td>
                           <td style="vertical-align:middle; padding-left:12px;">
-                            <span style="font-size:17px; font-weight:700; color:#1A4CA4;">Tu solicitud se ha confirmado con éxito</span>
+                            <span style="font-size:17px; font-weight:700; color:#1A4CA4;">Your request has been confirmed successfully</span>
                           </td>
                         </tr>
                       </table>
                       <p style="margin:0; font-size:14px; color:#374151; line-height:1.7;">
-                        Nuestro equipo de <i>ifeel Business Intelligence</i> revisará tu caso y se pondrá en contacto contigo en un plazo de <strong>24/48 horas laborables</strong> para analizar contigo los resultados y próximos pasos.
+                        Our <i>ifeel Business Intelligence</i> team will review your case and will get in touch with you within <strong>24/48 business hours</strong> to discuss the results and next steps.
                       </p>
                     </div>
 
-                    <!-- Próximos pasos -->
-                    <p style="font-size:15px; font-weight:700; color:#1A4CA4; margin:0 0 14px 0;">¿Qué puedes esperar ahora?</p>
+                    <!-- Next steps -->
+                    <p style="font-size:15px; font-weight:700; color:#1A4CA4; margin:0 0 14px 0;">What can you expect now?</p>
 
                     <table width="100%" cellpadding="0" cellspacing="0">
                       <tr>
                         <td style="padding:10px 0; border-bottom:1px solid #E7F1FE; vertical-align:top;">
                           <span style="display:inline-block; width:28px; height:28px; background:#FF9D89; color:white; border-radius:50%; text-align:center; line-height:28px; font-size:13px; font-weight:bold; flex-shrink:0;">1</span>
-                          <span style="font-size:14px; color:#4B5563; margin-left:10px; line-height:1.6;">Nuestro equipo revisará tu análisis de benchmarks de salud mental laboral.</span>
+                          <span style="font-size:14px; color:#4B5563; margin-left:10px; line-height:1.6;">Our team will review your workplace mental health benchmark analysis.</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:10px 0; border-bottom:1px solid #E7F1FE; vertical-align:top;">
                           <span style="display:inline-block; width:28px; height:28px; background:#FFB8AB; color:white; border-radius:50%; text-align:center; line-height:28px; font-size:13px; font-weight:bold;">2</span>
-                          <span style="font-size:14px; color:#4B5563; margin-left:10px; line-height:1.6;">Te contactaremos para agendar una breve reunión personalizada, enfocada en los resultados más relevantes para tu sector y mercado.</span>
+                          <span style="font-size:14px; color:#4B5563; margin-left:10px; line-height:1.6;">We will contact you to schedule a brief personalized meeting, focused on the most relevant results for your industry and market.</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:10px 0; vertical-align:top;">
                           <span style="display:inline-block; width:28px; height:28px; background:#84B8FA; color:white; border-radius:50%; text-align:center; line-height:28px; font-size:13px; font-weight:bold;">3</span>
-                          <span style="font-size:14px; color:#4B5563; margin-left:10px; line-height:1.6;">Juntos, convertiremos los datos en una estrategia de bienestar efectiva para tu organización.</span>
+                          <span style="font-size:14px; color:#4B5563; margin-left:10px; line-height:1.6;">Together, we will turn the data into an effective wellbeing strategy for your organization.</span>
                         </td>
                       </tr>
                     </table>
 
-                    <!-- Separador -->
+                    <!-- Separator -->
                     <div style="border-top:1px solid #E7F1FE; margin:28px 0;"></div>
 
-                    <!-- Contacto directo -->
+                    <!-- Direct contact -->
                     <p style="font-size:13px; color:#6B7280; line-height:1.6; margin:0;">
-                      ¿Tienes alguna pregunta urgente? Escríbenos a
-                      <a href="mailto:carmen@ifeelonline.com" style="color:#1A4CA4; font-weight:600; text-decoration:none;">carmen@ifeelonline.com</a> y te responderemos lo antes posible.
+                      Have an urgent question? Write to us at
+                      <a href="mailto:carmen@ifeelonline.com" style="color:#1A4CA4; font-weight:600; text-decoration:none;">carmen@ifeelonline.com</a> and we will get back to you as soon as possible.
                     </p>
 
                   </td>
@@ -146,7 +146,7 @@ async function sendConfirmationEmail(contactData: { email?: string; firstName?: 
                 <tr>
                   <td style="background:#F4F7FB; padding:20px 40px; border-radius:0 0 12px 12px; text-align:center; border-top:1px solid #E7F1FE;">
                     <p style="font-size:12px; color:#9CA3AF; margin:0;">
-                      © ${new Date().getFullYear()} ifeel · Cuidamos el bienestar de tu equipo
+                      © ${new Date().getFullYear()} ifeel · We care for your team's wellbeing
                     </p>
                   </td>
                 </tr>
@@ -169,7 +169,7 @@ async function sendConfirmationEmail(contactData: { email?: string; firstName?: 
       body: JSON.stringify({
         personalizations: [{
           to: [{ email: contactData.email, name: `${contactData.firstName || ''} ${contactData.lastName || ''}`.trim() }],
-          subject: 'Ya estamos trabajando en tu solicitud, pronto hablaremos sobre el bienestar de tu equipo.'
+          subject: "We're already working on your request — we'll be in touch about your team's wellbeing soon."
         }],
         from: {
           email: 'elena.estrada@ifeelonline.com',
@@ -426,34 +426,34 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
               <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
                 <div style="background: #0B1941; color: white; padding: 30px 30px 10px 30px; text-align: center; border-radius: 8px 8px 0 0;">
                   <img src="https://mcusercontent.com/91bbeb9ba75f6057211f2c6bf/images/15fb2efe-b427-c023-bc9e-f20681969218.png" alt="ifeel" style="max-width: 90px; height: auto; margin-bottom: 15px;">
-                  <h1 style="margin: 10px 0 0 0; font-size: 24px; font-weight: 400; font-family: 'Lora', serif;">Análisis de Salud Mental Laboral</h1>
+                  <h1 style="margin: 10px 0 0 0; font-size: 24px; font-weight: 400; font-family: 'Lora', serif;">Workplace Mental Health Analysis</h1>
                 </div>
 
                 <img src="https://mcusercontent.com/91bbeb9ba75f6057211f2c6bf/images/105694d9-fee1-c0d5-2bf0-7372dfa64172.png" alt="" style="width: 100%; display: block; margin: 0; padding: 0;">
 
                 <div style="background: #F4F7FB; padding: 30px; border-radius: 0 0 8px 8px;">
-                  <h2 style="color: #1A4CA4; margin-top: 0;">¡Gracias, ${userName}!</h2>
-                  <p style="font-size: 18px; line-height: 1.5; color: #1A4CA4; font-weight: 500;">Descubre los datos que te ayudarán a entender mejor el bienestar en tu organización</p>
+                  <h2 style="color: #1A4CA4; margin-top: 0;">Thank you, ${userName}!</h2>
+                  <p style="font-size: 18px; line-height: 1.5; color: #1A4CA4; font-weight: 500;">Discover the data that will help you better understand wellbeing in your organization</p>
 
                   <div style="background: white; padding: 20px; margin: 20px 0; border-radius: 6px;">
-                    <h3 style="font-weight: 700; font-size: 16px; color: #1B4291; margin: 0 0 10px 0;">Tus Datos</h3>
+                    <h3 style="font-weight: 700; font-size: 16px; color: #1B4291; margin: 0 0 10px 0;">Your Data</h3>
                     <div style="border-bottom: 2px solid #84B8FA; margin-bottom: 15px;"></div>
-                    <p style="margin: 5px 0; padding-bottom: 10px; border-bottom: 1px solid #84B8FA;"><strong>📊 Mercado:</strong> ${details?.mercado || 'N/A'}</p>
-                    <p style="margin: 5px 0; padding: 10px 0; border-bottom: 1px solid #84B8FA;"><strong>🏢 Industria:</strong> ${details?.industria || 'N/A'}</p>
-                    <p style="margin: 5px 0; padding: 10px 0; border-bottom: 1px solid #84B8FA;"><strong>📈 Absentismo General:</strong> ${details?.absentismoGeneral}%</p>
-                    <p style="margin: 5px 0; padding-top: 10px;"><strong>🧠 Absentismo por Salud Mental:</strong> ${details?.absentismoSM}%</p>
+                    <p style="margin: 5px 0; padding-bottom: 10px; border-bottom: 1px solid #84B8FA;"><strong>📊 Market:</strong> ${details?.mercado || 'N/A'}</p>
+                    <p style="margin: 5px 0; padding: 10px 0; border-bottom: 1px solid #84B8FA;"><strong>🏢 Industry:</strong> ${details?.industria || 'N/A'}</p>
+                    <p style="margin: 5px 0; padding: 10px 0; border-bottom: 1px solid #84B8FA;"><strong>📈 General Absenteeism:</strong> ${details?.absentismoGeneral}%</p>
+                    <p style="margin: 5px 0; padding-top: 10px;"><strong>🧠 Mental Health Absenteeism:</strong> ${details?.absentismoSM}%</p>
                   </div>
 
                   <div style="background: white; padding: 20px; margin: 20px 0; border-radius: 6px;">
-                    <h3 style="font-weight: 700; font-size: 16px; color: #1B4291; margin: 0 0 10px 0;">Comparativa frente a benchmarks de tu sector</h3>
+                    <h3 style="font-weight: 700; font-size: 16px; color: #1B4291; margin: 0 0 10px 0;">Comparison against your sector benchmarks</h3>
                     <div style="border-bottom: 2px solid #84B8FA; margin-bottom: 20px;"></div>
 
-                    <h4 style="font-weight: 700; font-size: 14px; color: #4172D4; margin: 0 0 10px 0;">Absentismo General</h4>
+                    <h4 style="font-weight: 700; font-size: 14px; color: #4172D4; margin: 0 0 10px 0;">General Absenteeism</h4>
                     <div style="border-bottom: 1px solid #84B8FA; margin-bottom: 15px;"></div>
 
                     <div style="margin-bottom: 10px;">
                       <div style="margin-bottom: 12px;">
-                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Tu empresa:</div>
+                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Your company:</div>
                         <div style="display: flex; align-items: center;">
                           <div style="flex: 1; background: #E7F1FE; border-radius: 4px; height: 24px; position: relative; overflow: hidden;">
                             <div style="background: linear-gradient(90deg, #1A4CA4 0%, #3E63BA 100%); height: 100%; width: ${Math.min(details?.absentismoGeneral || 0, 100)}%; border-radius: 4px;"></div>
@@ -462,7 +462,7 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
                         </div>
                       </div>
                       <div style="margin-bottom: 12px;">
-                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Benchmark Mercado:</div>
+                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Market Benchmark:</div>
                         <div style="display: flex; align-items: center;">
                           <div style="flex: 1; background: #E7F1FE; border-radius: 4px; height: 24px; position: relative; overflow: hidden;">
                             <div style="background: linear-gradient(90deg, #84B8FA 0%, #C2DCFD 100%); height: 100%; width: ${Math.min(details?.benchmarkMercadoGeneral || 0, 100)}%; border-radius: 4px;"></div>
@@ -471,7 +471,7 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
                         </div>
                       </div>
                       <div style="margin-bottom: 8px;">
-                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Benchmark Industria:</div>
+                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Industry Benchmark:</div>
                         <div style="display: flex; align-items: center;">
                           <div style="flex: 1; background: #E7F1FE; border-radius: 4px; height: 24px; position: relative; overflow: hidden;">
                             <div style="background: linear-gradient(90deg, #84B8FA 0%, #C2DCFD 100%); height: 100%; width: ${Math.min(details?.benchmarkIndustriaGeneral || 0, 100)}%; border-radius: 4px;"></div>
@@ -483,12 +483,12 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
 
                     <div style="border-bottom: 1px solid #84B8FA; margin: 15px 0 20px 0;"></div>
 
-                    <h4 style="font-weight: 700; font-size: 14px; color: #4172D4; margin: 0 0 10px 0;">Absentismo por Salud Mental</h4>
+                    <h4 style="font-weight: 700; font-size: 14px; color: #4172D4; margin: 0 0 10px 0;">Mental Health Absenteeism</h4>
                     <div style="border-bottom: 1px solid #84B8FA; margin-bottom: 15px;"></div>
 
                     <div>
                       <div style="margin-bottom: 12px;">
-                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Tu empresa:</div>
+                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Your company:</div>
                         <div style="display: flex; align-items: center;">
                           <div style="flex: 1; background: #E7F1FE; border-radius: 4px; height: 24px; position: relative; overflow: hidden;">
                             <div style="background: linear-gradient(90deg, #FF9D89 0%, #FFB8AB 100%); height: 100%; width: ${Math.min(details?.absentismoSM || 0, 100)}%; border-radius: 4px;"></div>
@@ -497,7 +497,7 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
                         </div>
                       </div>
                       <div style="margin-bottom: 12px;">
-                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Benchmark Mercado:</div>
+                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Market Benchmark:</div>
                         <div style="display: flex; align-items: center;">
                           <div style="flex: 1; background: #E7F1FE; border-radius: 4px; height: 24px; position: relative; overflow: hidden;">
                             <div style="background: linear-gradient(90deg, #FFDBCF 0%, #FFB8AB 100%); height: 100%; width: ${Math.min(details?.benchmarkMercadoSM || 0, 100)}%; border-radius: 4px;"></div>
@@ -506,7 +506,7 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
                         </div>
                       </div>
                       <div>
-                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Benchmark Industria:</div>
+                        <div style="font-weight: bold; color: #333; margin-bottom: 4px;">Industry Benchmark:</div>
                         <div style="display: flex; align-items: center;">
                           <div style="flex: 1; background: #E7F1FE; border-radius: 4px; height: 24px; position: relative; overflow: hidden;">
                             <div style="background: linear-gradient(90deg, #FFDBCF 0%, #FFB8AB 100%); height: 100%; width: ${Math.min(details?.benchmarkIndustriaSM || 0, 100)}%; border-radius: 4px;"></div>
@@ -532,7 +532,7 @@ app.post("/make-server-9633489f/download-logs", async (c) => {
             body: JSON.stringify({
               personalizations: [{
                 to: [{ email: userEmail, name: userName }],
-                subject: 'Tu analisis de benchmarks de salud mental laboral esta listo'
+                subject: 'Your workplace mental health benchmark analysis is ready'
               }],
               from: {
                 email: 'elena.estrada@ifeelonline.com',
@@ -892,15 +892,15 @@ app.get("/make-server-9633489f/register-interest", async (c) => {
           </head>
           <body style="margin: 0; padding: 20px; font-family: Arial, sans-serif; background: #f5f5f5;">
             <div style="max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px;">
-              <h2 style="color: #1A4CA4; margin-top: 0;">✅ Solicitud Recibida</h2>
+              <h2 style="color: #1A4CA4; margin-top: 0;">✅ Request Received</h2>
               <p style="font-size: 16px; line-height: 1.5; color: #333;">
-                Hola <strong>${contactData.firstName}</strong>,
+                Hello <strong>${contactData.firstName}</strong>,
               </p>
               <p style="font-size: 16px; line-height: 1.5; color: #333;">
-                Hemos recibido tu solicitud y nuestro equipo se pondrá en contacto contigo pronto.
+                We have received your request and our team will be in touch with you soon.
               </p>
               <p style="font-size: 14px; color: #666; margin-top: 30px;">
-                Equipo de ifeel Business Intelligence
+                ifeel Business Intelligence Team
               </p>
             </div>
           </body>
@@ -917,7 +917,7 @@ app.get("/make-server-9633489f/register-interest", async (c) => {
         body: JSON.stringify({
           personalizations: [{
             to: [{ email: contactData.email, name: contactData.firstName }],
-            subject: '✅ Hemos registrado tu solicitud - ifeel'
+            subject: '✅ We have registered your request - ifeel'
           }],
           from: {
             email: 'elena.estrada@ifeelonline.com',
@@ -1013,7 +1013,7 @@ app.post("/make-server-9633489f/send-test-email", async (c) => {
         },
         content: [{
           type: 'text/html',
-          value: '<h1>Email de prueba funcionando</h1><p>Si recibes esto, SendGrid está OK.</p>'
+          value: '<h1>Test email working</h1><p>If you receive this, SendGrid is working correctly.</p>'
         }]
       })
     });
@@ -1097,7 +1097,7 @@ app.get("/make-server-9633489f/test-sendgrid", async (c) => {
         },
         content: [{
           type: 'text/html',
-          value: '<h1>Email de prueba</h1><p>Si recibes este email, SendGrid está configurado correctamente.</p>'
+          value: '<h1>Test email</h1><p>If you receive this email, SendGrid is configured correctly.</p>'
         }]
       })
     });
