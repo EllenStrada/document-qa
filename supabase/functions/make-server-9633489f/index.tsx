@@ -196,9 +196,9 @@ async function sendConfirmationEmail(contactData: { email?: string; firstName?: 
 }
 
 // ========================================================================
-// POST /make-server-565cb7e7/download-logs - REGISTRAR DESCARGA
+// POST /make-server-9633489f/download-logs - REGISTRAR DESCARGA
 // ========================================================================
-app.post("/make-server-565cb7e7/download-logs", async (c) => {
+app.post("/make-server-9633489f/download-logs", async (c) => {
   console.log('🎯 POST /download-logs iniciado - Versión Actualizada con Comparación de Benchmarks');
 
   try {
@@ -578,9 +578,9 @@ app.post("/make-server-565cb7e7/download-logs", async (c) => {
 });
 
 // ========================================================================
-// POST /make-server-565cb7e7/validate-token - VALIDAR TOKEN JWT
+// POST /make-server-9633489f/validate-token - VALIDAR TOKEN JWT
 // ========================================================================
-app.post("/make-server-565cb7e7/validate-token", async (c) => {
+app.post("/make-server-9633489f/validate-token", async (c) => {
   console.log('🔐 POST /validate-token iniciado');
 
   try {
@@ -619,9 +619,9 @@ app.post("/make-server-565cb7e7/validate-token", async (c) => {
 });
 
 // ========================================================================
-// POST /make-server-565cb7e7/submit-demo-request - FLUJO COMPLETO DE DEMO
+// POST /make-server-9633489f/submit-demo-request - FLUJO COMPLETO DE DEMO
 // ========================================================================
-app.post("/make-server-565cb7e7/submit-demo-request", async (c) => {
+app.post("/make-server-9633489f/submit-demo-request", async (c) => {
   console.log('🚀 POST /submit-demo-request iniciado');
 
   try {
@@ -821,9 +821,9 @@ app.post("/make-server-565cb7e7/submit-demo-request", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-565cb7e7/register-interest - REGISTRAR INTERÉS Y ENVIAR EMAIL
+// GET /make-server-9633489f/register-interest - REGISTRAR INTERÉS Y ENVIAR EMAIL
 // ========================================================================
-app.get("/make-server-565cb7e7/register-interest", async (c) => {
+app.get("/make-server-9633489f/register-interest", async (c) => {
   console.log('🎯 GET /register-interest iniciado');
 
   const token = cleanToken(c.req.query('token') || '');
@@ -954,9 +954,9 @@ app.get("/make-server-565cb7e7/register-interest", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-565cb7e7/download-logs - OBTENER REGISTROS
+// GET /make-server-9633489f/download-logs - OBTENER REGISTROS
 // ========================================================================
-app.get("/make-server-565cb7e7/download-logs", async (c) => {
+app.get("/make-server-9633489f/download-logs", async (c) => {
   try {
     const { data, error } = await supabase
       .from('descargas mapa web')
@@ -975,9 +975,9 @@ app.get("/make-server-565cb7e7/download-logs", async (c) => {
 });
 
 // ========================================================================
-// POST /make-server-565cb7e7/send-test-email - ENVIAR EMAIL DE PRUEBA DIRECTO
+// POST /make-server-9633489f/send-test-email - ENVIAR EMAIL DE PRUEBA DIRECTO
 // ========================================================================
-app.post("/make-server-565cb7e7/send-test-email", async (c) => {
+app.post("/make-server-9633489f/send-test-email", async (c) => {
   console.log('🧪 POST /send-test-email iniciado');
 
   try {
@@ -1046,16 +1046,16 @@ app.post("/make-server-565cb7e7/send-test-email", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-565cb7e7/health - HEALTH CHECK
+// GET /make-server-9633489f/health - HEALTH CHECK
 // ========================================================================
-app.get("/make-server-565cb7e7/health", (c) => {
+app.get("/make-server-9633489f/health", (c) => {
   return c.json({ status: "ok", timestamp: new Date().toISOString(), version: "with-demo-flow" });
 });
 
 // ========================================================================
-// GET /make-server-565cb7e7/test-sendgrid - DIAGNÓSTICO SENDGRID
+// GET /make-server-9633489f/test-sendgrid - DIAGNÓSTICO SENDGRID
 // ========================================================================
-app.get("/make-server-565cb7e7/test-sendgrid", async (c) => {
+app.get("/make-server-9633489f/test-sendgrid", async (c) => {
   const sendgridApiKey = Deno.env.get('SENDGRID');
 
   const diagnostics = {
@@ -1122,9 +1122,9 @@ app.get("/make-server-565cb7e7/test-sendgrid", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-565cb7e7/test-hubspot-form - DIAGNÓSTICO HUBSPOT FORMS API
+// GET /make-server-9633489f/test-hubspot-form - DIAGNÓSTICO HUBSPOT FORMS API
 // ========================================================================
-app.get("/make-server-565cb7e7/test-hubspot-form", async (c) => {
+app.get("/make-server-9633489f/test-hubspot-form", async (c) => {
   console.log('🧪 POST /test-hubspot-form iniciado');
 
   try {
