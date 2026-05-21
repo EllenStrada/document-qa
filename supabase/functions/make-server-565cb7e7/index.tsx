@@ -43,7 +43,7 @@ app.use("*", logger(console.log));
 // ========================================================================
 // POST /make-server-565cb7e7/download-logs - REGISTRAR DESCARGA
 // ========================================================================
-app.post("/make-server-565cb7e7/download-logs", async (c) => {
+app.post("/download-logs", async (c) => {
   console.log('🎯 POST /download-logs iniciado');
 
   try {
@@ -267,7 +267,7 @@ app.post("/make-server-565cb7e7/download-logs", async (c) => {
     // 4️⃣ ENVIAR EMAIL CON SENDGRID - ✅ MANTENER ESTE EMAIL
     if (sendEmail && userEmail && userEmail.trim()) {
       try {
-        const sendgridApiKey = Deno.env.get('SENDGRID_API_KEY');
+        const sendgridApiKey = Deno.env.get('SENDGRID');
 
         if (sendgridApiKey) {
           console.log(`📧 Enviando email del análisis a ${userEmail}...`);
@@ -417,7 +417,7 @@ app.post("/make-server-565cb7e7/download-logs", async (c) => {
             console.error('🔴 Status code:', emailResponse.status);
           }
         } else {
-          console.warn('⚠️ SENDGRID_API_KEY no configurada');
+          console.warn('⚠️ SENDGRID no está configurada - Email NO enviado');
         }
       } catch (emailError) {
         console.error('⚠️ Error email (no crítico):', emailError.message);
@@ -444,7 +444,7 @@ app.post("/make-server-565cb7e7/download-logs", async (c) => {
 // ========================================================================
 // POST /make-server-565cb7e7/validate-token - VALIDAR TOKEN JWT
 // ========================================================================
-app.post("/make-server-565cb7e7/validate-token", async (c) => {
+app.post("/validate-token", async (c) => {
   console.log('🔐 POST /validate-token iniciado');
 
   try {
@@ -491,7 +491,7 @@ app.post("/make-server-565cb7e7/validate-token", async (c) => {
 // ========================================================================
 // POST /make-server-565cb7e7/submit-demo-request - FLUJO COMPLETO DE DEMO (SIN EMAIL)
 // ========================================================================
-app.post("/make-server-565cb7e7/submit-demo-request", async (c) => {
+app.post("/submit-demo-request", async (c) => {
   console.log('🚀 POST /submit-demo-request iniciado');
 
   try {
@@ -738,7 +738,7 @@ app.post("/make-server-565cb7e7/submit-demo-request", async (c) => {
 // ========================================================================
 // GET /make-server-565cb7e7/register-interest - REGISTRAR INTERÉS (SIN EMAIL) ❌
 // ========================================================================
-app.get("/make-server-565cb7e7/register-interest", async (c) => {
+app.get("/register-interest", async (c) => {
   console.log('🎯 GET /register-interest iniciado (SIN ENVÍO DE EMAIL)');
 
   const token = cleanToken(c.req.query('token') || '');
@@ -815,9 +815,9 @@ app.get("/make-server-565cb7e7/register-interest", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-565cb7e7/download-logs - OBTENER REGISTROS
+// GET /download-logs - OBTENER REGISTROS
 // ========================================================================
-app.get("/make-server-565cb7e7/download-logs", async (c) => {
+app.get("/download-logs", async (c) => {
   try {
     const { data, error } = await supabase
       .from('descargas mapa web')
@@ -840,9 +840,9 @@ app.get("/make-server-565cb7e7/download-logs", async (c) => {
 });
 
 // ========================================================================
-// GET /make-server-565cb7e7/health - HEALTH CHECK
+// GET /health - HEALTH CHECK
 // ========================================================================
-app.get("/make-server-565cb7e7/health", (c) => {
+app.get("/health", (c) => {
   return c.json({
     status: "ok",
     timestamp: new Date().toISOString(),
