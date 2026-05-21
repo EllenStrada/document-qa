@@ -34,7 +34,7 @@ app.use("*", logger(console.log));
 console.log('🔑 Configuración del servidor:');
 console.log('- SUPABASE_URL:', Deno.env.get('SUPABASE_URL') ? '✅ Configurada' : '❌ No configurada');
 console.log('- SUPABASE_SERVICE_ROLE_KEY:', Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ? '✅ Configurada' : '❌ No configurada');
-console.log('- SENDGRID_API_KEY:', Deno.env.get('SENDGRID_API_KEY') ? '✅ Configurada' : '❌ No configurada');
+console.log('- SENDGRID:', Deno.env.get('SENDGRID') ? '✅ Configurada' : '❌ No configurada');
 console.log('- HUBSPOT_API_KEY:', Deno.env.get('HUBSPOT_API_KEY') ? '✅ Configurada' : '❌ No configurada');
 console.log('- HUBSPOT_PORTAL_ID:', HUBSPOT_PORTAL_ID);
 console.log('- HUBSPOT_FORM_GUID:', HUBSPOT_FORM_GUID);
@@ -250,7 +250,7 @@ app.post("/download-logs", async (c) => {
     // 4️⃣ ENVIAR EMAIL CON SENDGRID - ✅ MANTENER ESTE EMAIL
     if (sendEmail && userEmail && userEmail.trim()) {
       try {
-        const sendgridApiKey = Deno.env.get('SENDGRID_API_KEY');
+        const sendgridApiKey = Deno.env.get('SENDGRID');
 
         console.log(`📧 Intentando enviar email a ${userEmail}...`);
         console.log(`📧 SendGrid API Key presente: ${sendgridApiKey ? 'SÍ' : 'NO'}`);
@@ -442,7 +442,7 @@ app.post("/download-logs", async (c) => {
             console.error('❌ Error SendGrid - Response:', errorText);
           }
         } else {
-          console.warn('⚠️ SENDGRID_API_KEY no está configurada - Email NO enviado');
+          console.warn('⚠️ SENDGRID no está configurada - Email NO enviado');
         }
       } catch (emailError) {
         console.error('⚠️ Error enviando email (no crítico):', emailError.message);
@@ -720,12 +720,12 @@ app.get("/register-interest", async (c) => {
 app.get("/test-sendgrid", async (c) => {
   console.log('📧 Test SendGrid iniciado');
 
-  const sendgridApiKey = Deno.env.get('SENDGRID_API_KEY');
+  const sendgridApiKey = Deno.env.get('SENDGRID');
 
   if (!sendgridApiKey) {
     return c.json({
       success: false,
-      error: 'SENDGRID_API_KEY no configurada',
+      error: 'SENDGRID no configurada',
       configured: false
     }, 500);
   }
