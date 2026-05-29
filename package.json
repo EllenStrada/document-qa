@@ -1,0 +1,22 @@
+{
+  "name": "document-qa",
+  "version": "1.0.0",
+  "description": "A simple Streamlit app that answers questions about an uploaded document via OpenAI's GPT-3.5.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:35649/git/EllenStrada/document-qa"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.100.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
