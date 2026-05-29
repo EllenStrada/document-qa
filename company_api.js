@@ -79,7 +79,8 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 API corriendo en http://localhost:${PORT}`);
+  const apiName = process.env.API_NAME || 'Company Search API';
+  console.log(`🚀 ${apiName} corriendo en http://localhost:${PORT}`);
   console.log(`📝 POST /search-company - Buscar y completar datos de empresa`);
   console.log(`❤️  GET /health - Verificar que la API está activa`);
 });
